@@ -1,7 +1,7 @@
 import { io } from 'socket.io-client';
 
-// "undefined" means the URL will be computed from the `window.location` object
-const URL = process.env.NODE_ENV === 'production' ? undefined : 'https://wordlemp-server.onrender.com';
+// Always connect to the render.com server
+const URL = 'https://wordlemp-server.onrender.com';
 
 export const socket = io(URL, {
 transports: ["websocket"] // use webSocket only
