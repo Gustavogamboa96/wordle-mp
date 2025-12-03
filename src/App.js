@@ -212,6 +212,11 @@ export default function App() {
 
   socket.on("gameStarting", (msg) => {
     setGameStart(true);
+    // If randomWord hasn't been set yet, set it from the gameStarting message
+    if (!randomWord && msg) {
+      setRandomWord(msg);
+      ranWord = msg;
+    }
     console.log("HEREWEGO " + msg)
   })
 
