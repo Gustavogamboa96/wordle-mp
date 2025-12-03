@@ -3,7 +3,6 @@ import { socket } from "./socket";
 import { Timer } from "./Timer.js"
 import { useRef, useState, useEffect } from "react";
 
-let dict = ["squat", "putas", "spurt"];
 const words = require("./words.json");
 let ranWord ;
 
@@ -196,7 +195,6 @@ function GameCreation(){
 }
 
 export default function App() {
-  const [isWinner, setWinner] = useState(false);
   const [guesses, setGuesses] = useState(new Array(5).fill(null));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [gameStart, setGameStart] = useState(false);
@@ -229,7 +227,6 @@ export default function App() {
       setGameStart(false)
       socket.emit("isWinner", "Winner"+socket.id);
       alert("Winner");
-      setWinner(true);
       return;
     }
     const tmp = [...guesses];
